@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Puzzle</title>
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link href="../static/signup.css" rel="stylesheet">
+    <script src="../static/js/jquery-2.2.1.min.js"></script>
+    <script src="../static/js/signup.js"></script>
+  
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Choose</h3>
+      </div>
+
+      <div class="jumbotron">
+        <div class="row">
+          <h2 class="text-center">User play</h2>
+          <p class="lead"></p>
+            <p class="text-center"><a class="btn btn-lg btn-success" href="userpuzzle" role="button">Play!</a>
+          </p>
+        </div>
+
+        <div class="row">
+            <h2 class="text-center">System play</h2>
+            <p class="lead"></p>
+              <p class="text-center"><a class="btn btn-lg btn-success" href="systempuzzle" role="button">Play!</a>
+            </p>
+          </div>
+
+          <div class="row">
+              <h2 class="text-center">Top Results</h2>
+              <p class="lead"></p>
+                <p class="text-center"><a class="btn btn-lg btn-success" href="topResults" role="button">Show!</a>
+              </p>
+            </div>
+
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Puzzle</p>
+      </footer>
+
+    </div>
+  </body>
+</html>

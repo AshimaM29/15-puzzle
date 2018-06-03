@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Puzzle</title>
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link href="../static/signup.css" rel="stylesheet">
+    <link href="../static/15-puzzleb.css" rel="stylesheet">
+    <script src="../static/js/jquery-2.2.1.min.js"></script>
+    <script src="../static/js/signup.js"></script>
+  
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Puzzle</h3>
+      </div>
+
+      <div class="jumbotron">
+        <form action="{{ url_for('handle_system_data') }}" method="post">
+        </form>
+        <div id="puzzle"></div>
+        <div id="controls">
+            <button id="solveSystem">Solve</button>		
+            <button id="scramble">Scramble</button>
+        </div>
+
+        <h2 id="resultTime"></h2>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Puzzle</p>
+      </footer>
+
+    </div>
+    <script src="../static/js/15-puzzleai.js"></script>
+    <script>
+      $( document ).ready(function() {
+        $('#solveSystem').click(function() {
+          function getCell(row, col){
+            return document.getElementById('cell-'+row+'-'+col);
+          }
+
+          var config = [];
+          for(var i = 0; i <= 3; i++){
+            for(var j = 0; j <= 3; j++){
+              if(getCell(i, j).innerHTML == "") {
+                config.push("" + 0);
+              } else {
+                config.push(getCell(i, j).innerHTML);
+              }
+            }
+          }
+          
+          if($('#config').length) {
+            $('#config').remove();
+          }
+          $('<input>').attr({
+            type: 'hidden',
+            id: 'config',
+            name: 'config',
+            value: config
+          }).appendTo('form');
+
+          $('form').submit();
+          
+        });
+      });
+    </script>
+  </body>
+</html>
