@@ -46,7 +46,7 @@ class IDAStar:
 
         m = None # Lower bound on cost.
         for cost, n, descr in self.neighbours(node):
-            if n in self.is_in_path: continue
+            if n in self.is_in_path: continue 
 
             self.path.append(n)
             self.is_in_path.add(n)

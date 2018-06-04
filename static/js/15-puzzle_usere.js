@@ -2,6 +2,7 @@
 	
 	var state = 1;
 	var flag = 1;
+	var count=0;
 	var puzzle = document.getElementById('puzzle');
 
 	// Creates solved puzzle
@@ -10,9 +11,10 @@
 	// Listens for click on puzzle cells
 	puzzle.addEventListener('click', function(e){
 		if(state == 1){
+			count=count + 1;
 			// Enables sliding animation
 			puzzle.className = 'animate';
-			shiftCell(e.target);
+			shiftCell(e.target,count);
 		}
 	});
 	
@@ -58,8 +60,9 @@
 	 * Shifts number cell to the empty cell
 	 * 
 	 */
-	function shiftCell(cell){
+	function shiftCell(cell,count){
 
+		
 		if(flag == 0) {
 			var config = [];
 				for(var i = 0; i <= 3; i++){
@@ -67,7 +70,7 @@
 						config.push(getCell(i, j).innerHTML);
 					}
 				}
-
+				count++;
 				if($('#config').length) {
 					$('#config').remove();
 				}
@@ -78,6 +81,7 @@
 					value: config
 				}).appendTo('form');
 				flag = 1;
+				
 		}
 		
 		// Checks if selected cell has number
@@ -98,7 +102,7 @@
 				
 				if(state == 1){
 					// Checks the order of numbers
-					checkOrder();
+					checkOrder(count);
 				}
 			}
 		}
@@ -174,7 +178,7 @@
 	 * Chechs if the order of numbers is correct
 	 *
 	 */
-	function checkOrder(){
+	function checkOrder(count){
 		
 		// Checks if the empty cell is in correct position
 		if(getCell(3, 3).className != 'empty'){
@@ -192,7 +196,7 @@
 				n++;
 			}
 		}
-		
+		//var count= $('#count').val();
 		var startTime = $('#initialTimestamp').val();
 		var currentTime = (new Date).getTime();
 		var timeTaken = (currentTime - Number(startTime))/1000;
@@ -203,7 +207,7 @@
 			value: timeTaken
 		}).appendTo('form');
 
-		alert("Congrats, You did it!\nTime taken: " + timeTaken + " seconds");
+		alert("Congrats, You did it!\nTime taken: " + timeTaken + " seconds and " + count +" steps!");
 		// Puzzle is solved, offers to scramble it
 
 		$('form').submit();

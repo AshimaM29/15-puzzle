@@ -9,7 +9,6 @@ app.secret_key = 'ssh...Big secret!'
 mysql = MySQL()
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'remo161196'
 app.config['MYSQL_DATABASE_DB'] = 'puzzle'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
@@ -20,7 +19,7 @@ def main():
 
 @app.route("/userpuzzle")
 def userpuzzle():
-    return render_template('userpuzzle.html')
+    return render_template('userpuzzle.html')	
 
 @app.route("/systempuzzle")
 def systempuzzle():
@@ -58,6 +57,7 @@ def handle_system_data():
 		conn.commit()
 
 		data_dict = {
+			'moves':cost,
 			'time': timeTaken
 		}
 
@@ -105,9 +105,6 @@ def handle_user_data():
 		return redirect(url_for('main'))
 	except Exception as e:
 		return json.dumps({'error':str(e)})
-	finally:
-		cursor.close()
-		conn.close()
 
 if (__name__ == "__main__"):
 	app.debug = True

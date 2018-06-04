@@ -29,6 +29,7 @@
         </div>
 
         <h2 id="resultTime"></h2>
+        <h2 id="pleaseWait"></h2>
       </div>
 
       <footer class="footer">
@@ -64,6 +65,8 @@
             name: 'config',
             value: config
           }).appendTo('form');
+
+          $('#pleaseWait').text("Please wait while the system is solving the puzzle");
 
           $('form').submit();
           

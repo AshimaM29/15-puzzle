@@ -36,8 +36,9 @@
       </footer>
 
     </div>
-    <script src="../static/js/15-puzzle_usera.js"></script>
+    <script src="../static/js/15-puzzle_usere.js"></script>
     <script>
+      
     $( document ).ready(function() {
       $('#puzzle').one('click', function(e) {
               $('<input>').attr({
@@ -45,6 +46,7 @@
                 id: 'initialTimestamp',
                 value: (new Date).getTime()
             }).appendTo('form');
+            
       });
 
       function getCell(row, col){

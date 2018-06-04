@@ -1,0 +1,5 @@
+source bin/activate
+
+python main.py
+
+/usr/local/mysql/bin/mysql -u root
