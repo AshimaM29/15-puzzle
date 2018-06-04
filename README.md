@@ -2,9 +2,9 @@
 15 puzzle solver
 
 
-Stack: HTML, CSS, Javascript, Flask (Python)
+**Stack:** HTML, CSS, Javascript, Flask (Python)
 
-Contributors:
+**Contributors:**
 
 Ashima Mehra - Frontend + Backend
 
