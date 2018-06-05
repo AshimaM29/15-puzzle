@@ -2,7 +2,7 @@
 15 puzzle solver
 
 
-**Stack:** HTML, CSS, Javascript, Flask (Python)
+**Stack:** HTML, CSS, Javascript, Flask (Python), mysql (database)
 
 **Contributors:**
 
