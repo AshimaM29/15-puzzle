@@ -9,7 +9,7 @@
 Ashima Mehra - Frontend + Backend
 
 
-Neha - IDA* Algorithm + code
+Neha - Algorithm logic + code
 
 
 Divya - IDA* Algorithm + code
